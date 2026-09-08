@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>श्रीराम ट्रॅव्हल्स</title>
+    <!-- FontAwesome Buttons & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- हेडर -->
+    <header>
+        <div class="logo" id="nav-logo">🚖 श्रीराम ट्रॅव्हल्स</div>
+        <nav>
+            <a href="#" id="lang-home">होम</a>
+            <a href="#our-services" id="lang-serv-link">सेवा</a>
+            <a href="#contact-us" id="lang-cont-link">आमचा संपर्क</a>
+            <a href="#our-fleet" id="lang-fleet-link">गाड्यांचा ताफा</a>
+            <select class="lang-switch" onchange="changeLanguage(this.value)">
+                <option value="mr">मराठी</option>
+                <option value="en">English</option>
+            </select>
+        </nav>
+    </header>
+
+  <!-- Responsive Overlapping Hero Section -->
+<!-- <section class="hero-container">
+    <div class="hero-grid">
+        
+        
+        <div class="hero-text">
+            <h4 id="wcline">तुमचा प्रवास सुखाचा करा</h4>
+            <p id="wc2line">उत्कृष्ट ट्रॅव्हल सेवा आणि झटपट व्हॉट्सॲप कॅब बुकिंग एकाच ठिकाणी</p>
+        </div>
+
+        
+
+    </div>
+</section> -->
+
+    <!-- मुख्य विभाग -->
+    <main class="main-container">
+
+
+        <section>
+            <h2 class="section-title" id="form-title">कॅब बुक करा</h2>
+            <form onsubmit="sendToWhatsApp(event)">
+                <div class="form-group">
+                    <label for="cust-name" id="lbl-name">तुमचे नाव (Your Name)</label>
+                    <input type="text" id="cust-name" placeholder="उदा. राहुल पाटील" required>
+                </div>
+                <div class="form-group">
+                    <label for="pickup" id="lbl-pickup">पिक-अप ठिकाण (Pickup)</label>
+                    <input type="text" id="pickup" placeholder="उदा. मुंबई विमानतळ" required>
+                </div>
+                <div class="form-group">
+                    <label for="drop" id="lbl-drop">ड्रॉप ठिकाण (Drop)</label>
+                    <input type="text" id="drop" placeholder="उदा. पुणे स्टेशन" required>
+                </div>
+                <div class="form-group">
+                    <label for="date" id="lbl-date">तारीख (Date)</label>
+                    <input type="date" id="date" required>
+                </div>
+               
+                <div class="form-group">
+                    <label for="cab-type" id="lbl-cab">कॅबचा प्रकार (Cab Type)</label>
+                    <select id="cab-type" onchange="calculateFare()">
+                        <option value="Hatchback">हॅचबॅक (Hatchback) - ₹११/किमी</option>
+                        <option value="Sedan">सेडान (Sedan) - ₹१३/किमी</option>
+                        <option value="SUV">एसयूव्ही (SUV) - ₹१७/किमी</option>
+                    </select>
+                </div>
+
+            
+
+                <button type="submit" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> <span id="btn-text">व्हॉट्सॲपवर बुक करा</span>
+                </button>
+            </form>
+        </section>  
+        
+       
+
+       <!-- संचालकांचे मनोगत (Modernized) -->
+<section class="owner-section" id="contact-us">
+    <h2 class="section-title" id="owner-title">संचालकांचे मनोगत</h2>
+    <div class="owner-card">
+        <!-- संचालकांचा नवीन अधिकृत फोटो -->
+        <div class="owner-img-container">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=300&q=80" alt="विजय शिंदे - संचालक" class="owner-img">
+        </div>
+        <div class="owner-details">
+            <h3 id="owner-name">संतोष शेळके</h3>
+            <p class="role" id="owner-role">संस्थापक आणि मुख्य कार्यकारी अधिकारी (CEO)</p>
+            <div class="bio-quote">
+                <p class="bio" id="owner-bio">"गेल्या १० वर्षांपासून आम्ही आमच्या ग्राहकांना सुरक्षित आणि वेळेवर प्रवासाची हमी देत आहोत. आमचे उद्दिष्ट वाजवी दरात सर्वोत्तम सेवा पुरवणे हेच आहे."</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+            <!-- आमच्या सेवा -->
+            <section id="our-services">
+                <h2 class="section-title" id="services-title">आमच्या सेवा</h2>
+                <div class="services-grid">
+                    <div class="service-box">
+                        <i class="fas fa-plane-departure"></i>
+                        <h4 id="serv1-title">एअरपोर्ट पिक-अप/ड्रॉप</h4>
+                        <p id="serv1-desc">विमानतळावर जाण्यासाठी २४/७ ऑन-टाईम कॅब सुविधा.</p>
+                    </div>
+                    <div class="service-box">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h4 id="serv2-title">आउटस्टेशन ट्रिप्स</h4>
+                        <p id="serv2-desc">महाराष्ट्रातील कोणत्याही शहरात फिरण्यासाठी आरामदायी गाड्या.</p>
+                    </div>
+                    <div class="service-box">
+                        <i class="fas fa-building"></i>
+                        <h4 id="serv3-title">कॉर्पोरेट ट्रॅव्हल</h4>
+                        <p id="serv3-desc">कंपन्यांच्या ऑफिस कामांसाठी आणि कर्मचाऱ्यांसाठी विशेष पॅकेजेस.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- गाड्यांचा ताफा -->
+            <section id="our-fleet">
+                <h2 class="section-title" id="fleet-title">आमचा गाड्यांचा ताफा</h2>
+                <div class="fleet-grid">
+                    <div class="fleet-card">
+                        <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=500&q=80" alt="Hatchback">
+                        <div class="fleet-info">
+                            <h4>Hatchback (WagonR / Tiago)</h4>
+                            <p class="features"><i class="fas fa-user"></i> ४ सीट्स &nbsp;|&nbsp; <i class="fas fa-snowflake"></i> AC</p>
+                            <div class="rate" id="rate-hatch">दर: ₹११ / किमी</div>
+                        </div>
+                    </div>
+                    <div class="fleet-card">
+                        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=500&q=80" alt="Sedan">
+                        <div class="fleet-info">
+                            <h4>Sedan (Dzire / Etios)</h4>
+                            <p class="features"><i class="fas fa-user"></i> ४ सीट्स &nbsp;|&nbsp; <i class="fas fa-snowflake"></i> AC &nbsp;|&nbsp; <i class="fas fa-briefcase"></i> मोठे बूट स्पेस</p>
+                            <div class="rate" id="rate-sedan">दर: ₹१३ / किमी</div>
+                        </div>
+                    </div>
+                    <div class="fleet-card">
+                        <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=500&q=80" alt="SUV">
+                        <div class="fleet-info">
+                            <h4>SUV (Ertiga / Innova)</h4>
+                            <p class="features"><i class="fas fa-user"></i> ६-७ सीट्स &nbsp;|&nbsp; <i class="fas fa-snowflake"></i> AC &nbsp;|&nbsp; <i class="fas fa-shield-alt"></i> फॅमिली ट्रिपसाठी बेस्ट</p>
+                            <div class="rate" id="rate-suv">दर: ₹१७ / किमी</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Google Maps Location Section -->
+<section class="map-section">
+    <h2 class="section-title"><i class="fa-solid fa-map-location-dot"></i> आमचे कार्यालय (Our Location)</h2>
+    <div class="map-card">
+        <!-- कर्वेनगर पुणे लोकेशनचा गुगल मॅप एम्बेड कोड -->
+        <iframe 
+            src="https://google.com" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div class="map-info">
+            <h4>🏢 मुख्य कार्यालय:</h4>
+            <p>कर्वेनगर (Karvenagar), पुणे, महाराष्ट्र - ४११०५२</p>
+            <a href="https://google.com" target="_blank" class="direction-btn">
+                <i class="fa-solid fa-diamond-turn-right"></i> गुगल मॅपवर दिशा पहा
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Online Payment QR Code Section -->
+<section class="payment-section">
+    <h2 class="section-title"><i class="fa-solid fa-credit-card"></i> सुरक्षित ऑनलाइन पेमेंट (Online Payment)</h2>
+    
+    <div class="payment-card">
+        <!-- डावी बाजू: यूपीआय ॲप्सचे लोगो आणि बँक तपशील -->
+        <div class="payment-details">
+            <h4>ॲडव्हान्स बुकिंगसाठी पेमेंट करा</h4>
+            <p class="payment-instruction">तुमची कॅब बुकिंग निश्चित करण्यासाठी तुम्ही खालील QR कोड स्कॅन करून किंवा बँक खात्यावर ॲडव्हान्स पैसे पाठवू शकता. पेमेंट केल्यावर कृपया त्याचा स्क्रीनशॉट आम्हाला व्हॉट्सॲपवर नक्की पाठवा.</p>
+            
+            <!-- अधिकृत यूपीआय ॲप्स आयकॉन्स -->
+            <div class="upi-apps">
+                <span class="upi-badge"><i class="fa-solid fa-bolt" style="color: #00bfa5;"></i> BHIM UPI</span>
+                <span class="upi-badge"><i class="fa-brands fa-google-pay" style="color: #4285F4;"></i> GPay</span>
+                <span class="upi-badge"><i class="fa-solid fa-p" style="color: #5f259f;"></i> PhonePe</span>
+                <span class="upi-badge"><i class="fa-solid fa-wallet" style="color: #00baf2;"></i> Paytm</span>
+            </div>
+
+            
+        </div>
+
+        <!-- उजवी बाजू: क्यूआर कोड इमेज डिस्प्ले क्षेत्र -->
+        <div class="qr-area">
+            <div class="qr-box">
+                <!-- सॅम्पल QR कोड इमेज (इथे तुमच्या स्वतःच्या QR कोड इमेजची लिंक टाका) -->
+                <img src="https://qrserver.com" alt="सफर ट्रॅव्हल्स QR कोड" class="qr-image">
+                <span class="scan-text"><i class="fa-solid fa-expand"></i> स्कॅन करून पैसे भरा</span>
+            </div>
+            <p class="upi-id"><strong>UPI ID:</strong> safartravels@upi</p>
+        </div>
+    </div>
+</section>
+
+
+
+        </div>
+    </main>
+
+    <!-- फुटर -->
+    <footer>
+        <p id="footer-text">&copy; 2026 सफर ट्रॅव्हल्स आणि कॅब सर्व्हिसेस. सर्व हक्क सुरक्षित.</p>
+    </footer>
+
+    <!-- भाषा आणि व्हॉट्सॲप कार्यप्रणालीची स्क्रिप्ट -->
+    <script>
+        const languageData = {
+            mr: {
+                logo: "🚖 सफर ट्रॅव्हल्स", home: "होम", servLink: "सेवा", fleetLink: "गाड्यांचा ताफा",
+                heroTitle: "तुमचा प्रवास सुखाचा करा", heroDesc: "उत्कृष्ट ट्रॅव्हल सेवा आणि झटपट व्हॉट्सॲप कॅब बुकिंग एकाच ठिकाणी",
+                formTitle: "कॅब बुक करा", lblName: "तुमचे नाव", lblPickup: "पिक-अप ठिकाण", lblDrop: "ड्रॉप ठिकाण",
+                lblDate: "तारीख", lblCab: "कॅबचा प्रकार", btnText: "व्हॉट्सॲपवर बुक करा",
+                ownerTitle: "संचालकांचे मनोगत", ownerName: "संतोष शेळके", ownerRole: "संस्थापक आणि मुख्य कार्यकारी अधिकारी (CEO)",
+                ownerBio: '"गेल्या १० वर्षांपासून आम्ही आमच्या ग्राहकांना सुरक्षित आणि वेळेवर प्रवासाची humi देत आहोत. आमचे उद्दिष्ट वाजवी दरात सर्वोत्तम सेवा पुरवणे हेच आहे."',
+                servicesTitle: "आमच्या सेवा", serv1Title: "एअरपोर्ट पिक-अप/ड्रॉप", serv1Desc: "विमानतळावर जाण्यासाठी २४/७ ऑन-टाईम कॅब सुविधा.",
+                serv2Title: "आउटस्टेशन ट्रिप्स", serv2Desc: "महाराष्ट्रातील कोणत्याही शहरात फिरण्यासाठी आरामदायी गाड्या.",
+                serv3Title: "कॉर्पोरेट ट्रॅव्हल", serv3Desc: "कंपन्यांच्या ऑफिस कामांसाठी आणि कर्मचाऱ्यांसाठी विशेष पॅकेजेस.",
+                fleetTitle: "आमचा गाड्यांचा ताफा", rateHatch: "दर: ₹११ / किमी", rateSedan: "दर: ₹१३ / किमी", rateSuv: "दर: ₹१७ / किमी",
+                footer: "© 2026 सफर ट्रॅव्हल्स आणि कॅब सर्व्हिसेस. सर्व हक्क सुरक्षित.",
+                wctxt: "तुमचा प्रवास सुखाचा करा",
+                wc2: "उत्कृष्ट ट्रॅव्हल सेवा आणि झटपट व्हॉट्सॲप कॅब बुकिंग एकाच ठिकाणी" ,
+				langcontatcontlink:"आमचा संपर्क"
+            },
+            en: {
+                logo: "🚖 ShriRam Travels", home: "Home", servLink: "Services", fleetLink: "Our Fleet",
+                heroTitle: "Make Your Journey Comfortable", heroDesc: "Excellent travel services and instant WhatsApp cab booking in one place",
+                formTitle: "Book a Cab", lblName: "Your Name", lblPickup: "Pickup Location", lblDrop: "Drop Location",
+                lblDate: "Date",  lblCab: "Cab Type", btnText: "Book on WhatsApp",
+                ownerTitle: "Owner's Message", ownerName: "Santosh Shelke", ownerRole: "Founder & CEO",
+                ownerBio: '"For the past 10 years, we have been guaranteeing safe and timely travel to our customers. Our goal is to provide the best service at reasonable rates."',
+                servicesTitle: "Our Services", serv1Title: "Airport Pick-up/Drop", serv1Desc: "24/7 on-time cab facility for airport transfers.",
+                serv2Title: "Outstation Trips", serv2Desc: "Comfortable cars to travel to any city in Maharashtra.",
+                serv3Title: "Corporate Travel", serv3Desc: "Special travel packages for corporate offices and employees.",
+                fleetTitle: "Our Vehicle Fleet", rateHatch: "Rate: ₹11 / km", rateSedan: "Rate: ₹13 / km", rateSuv: "Rate: ₹17 / km",
+                footer: "© 2026 Safar Travels & Cab Services. All Rights Reserved.",
+                 wctxt: "Make Every Journey Comfortable",
+                 wc2: "Excellent travel services and instant WhatsApp cab booking, all in one place." ,
+				 langcontatcontlink:"Contact Us"
+            }
+        };
+
+        let currentLang = 'mr';
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            const data = languageData[lang];
+            
+            document.getElementById('nav-logo').innerText = data.logo;
+            document.getElementById('lang-home').innerText = data.home;
+            document.getElementById('lang-serv-link').innerText = data.servLink;
+            document.getElementById('lang-fleet-link').innerText = data.fleetLink;
+            // document.getElementById('hero-title').innerText = data.heroTitle;
+            // document.getElementById('hero-desc').innerText = data.heroDesc;
+            document.getElementById('form-title').innerText = data.formTitle;
+            document.getElementById('lbl-name').innerText = data.lblName;
+            document.getElementById('lbl-pickup').innerText = data.lblPickup;
+            document.getElementById('lbl-drop').innerText = data.lblDrop;
+            document.getElementById('lbl-date').innerText = data.lblDate;
+        
+            document.getElementById('lbl-cab').innerText = data.lblCab;
+            document.getElementById('btn-text').innerText = data.btnText;
+            document.getElementById('owner-title').innerText = data.ownerTitle;
+            document.getElementById('owner-name').innerText = data.ownerName;
+            document.getElementById('owner-role').innerText = data.ownerRole;
+            document.getElementById('owner-bio').innerText = data.ownerBio;
+            document.getElementById('services-title').innerText = data.servicesTitle;
+            document.getElementById('serv1-title').innerText = data.serv1Title;
+            document.getElementById('serv1-desc').innerText = data.serv1Desc;
+            document.getElementById('serv2-title').innerText = data.serv2Title;
+            document.getElementById('serv2-desc').innerText = data.serv2Desc;
+            document.getElementById('serv3-title').innerText = data.serv3Title;
+            document.getElementById('serv3-desc').innerText = data.serv3Desc;
+            document.getElementById('fleet-title').innerText = data.fleetTitle;
+            document.getElementById('rate-hatch').innerText = data.rateHatch;
+            document.getElementById('rate-sedan').innerText = data.rateSedan;
+            document.getElementById('rate-suv').innerText = data.rateSuv;
+            document.getElementById('footer-text').innerText = data.footer;
+           document.getElementById("wcline").innerText =data.wctxt;
+           document.getElementById("wc2line").innerText =data.wc2;
+		   document.getElementById("lang-cont-link").innerText =data.langcontatcontlink;
+
+            //calculateFare();
+        }
+
+  
+
+        function sendToWhatsApp(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('cust-name').value;
+            const pickup = document.getElementById('pickup').value;
+            const drop = document.getElementById('drop').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const cab = document.getElementById('cab-type').value;
+
+            const myPhoneNumber = "917218663586";
+
+            const message = `✨ *नवीन कॅब बुकिंग विनंती* ✨%0A%0A` +
+                            `👤 *ग्राहकाचे नाव:* ${name}%0A` +
+                            `📍 *पिक-अप ठिकाण:* ${pickup}%0A` +
+                            `🏁 *ड्रॉप ठिकाण:* ${drop}%0A` +
+                            `📅 *तारीख:* ${date}%0A` +
+                            `🕒 *वेळ:* ${time}%0A` +
+                            `🚖 *कॅब प्रकार:* ${cab}%0A%0A` +
+                            `कृपया बुकिंग कन्फर्म करून भाड्याची सविस्तर माहिती पाठवा. धन्यवाद!`;
+
+            const whatsappUrl = `https://api.whatsapp.com/send?phone=${myPhoneNumber}&text=${message}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        window.onload = function() {
+            calculateFare();
+        };
+    </script>
+</body>
+</html>
