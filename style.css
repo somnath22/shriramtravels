@@ -1,0 +1,1022 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #0a0a0a;
+            line-height: 1.6;
+        }
+
+
+        /* हेडर आणि नेव्हिगेशन */
+header {
+    /* मूळ निळा रंग आणि पांढरा मजकूर */
+    background-color: #2471b9;
+    color: #ffffff;
+    
+    /* 1. आधुनिक अंतर (Padding): वर-खाली थोडं कमी आणि बाजूला सुरक्षित अंतर */
+    padding: 12px 24px;
+    
+    /* फ्लेक्सबॉक्स अलाइनमेंट */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* स्टिकी पोझिशन आणि लेयरिंग */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    
+    /* 2. सॉफ्ट आणि मॉडर्न शॅडो इफेक्ट (आधीपेक्षा कमी गडद आणि डोळ्यांना सुखावणारा) */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    
+    /* 3. बॅकड्रॉप फिल्टर (काचेसारखा प्रीमियम लूक - ब्लर इफेक्ट) */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    
+    /* 4. ट्रान्झिशन इफेक्ट (स्मूथ स्क्रोलिंग अनुभवासाठी) */
+    transition: all 0.3s ease;
+}
+
+/* 5. मोबाईल स्क्रीनसाठी मीडिया क्वेरी (Responsive Standard) */
+@media (max-width: 768px) {
+    header {
+        padding: 12px 16px; /* मोबाईलवर बाजूचे अंतर कमी केले जेणेकरून जागा वाया जाणार नाही */
+        flex-direction: column; /* आवश्यक असल्यास मेनू एकाखाली एक आणण्यासाठी */
+        gap: 10px;
+    }
+}
+
+
+        header .logo {
+    /* मूळ आकार आणि रंग */
+    font-size: 24px;
+    font-weight: 700; /* 'bold' ऐवजी अचूक ७०० वेट (Weight) वापरणे मानकानुसार योग्य आहे */
+    color: #f39c12;
+    
+    /* 1. आधुनिक बदल: लोगो अधिक आकर्षक आणि अलाइन करण्यासाठी */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* जर लोगोमध्ये कॅबचा इमोजी (🚖) किंवा आयकॉन असेल तर त्यामध्ये अंतर राखण्यासाठी */
+    
+    /* 2. लिंकिंग आणि क्लिकिंगसाठी */
+    text-decoration: none; /* जर लोगोला <a> टॅग वापरला असेल तर अंडरलाईन काढण्यासाठी */
+    cursor: pointer;
+    
+    /* 3. स्मूथ ॲनिमेशन इफेक्ट */
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    user-select: none; /* युझरने चुकून डबल क्लिक केल्यास लोगो टेक्स्ट सिलेक्ट होणार नाही */
+}
+
+/* 4. होव्हर इफेक्ट (जेव्हा युझर माउस लोगोवर नेईल) */
+header .logo:hover {
+    transform: scale(1.02); /* लोगो हलकासा मोठा होईल, जो प्रीमियम फील देतो */
+    opacity: 0.9;
+}
+
+
+       /* नेव्हिगेशन कंटेनर */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 24px; /* मानकांनुसार २०px ऐवजी २४px (1.5rem) अंतर ठेवल्याने लिंक्स स्पष्ट दिसतात */
+    transition: all 0.3s ease;
+}
+
+/* नेव्हिगेशनमधील लिंक्स (Menu Items) */
+nav a {
+    color: #ffffff; /* पूर्ण पांढरा रंग */
+    text-decoration: none;
+    font-weight: 500;
+    
+    /* 1. क्लिकिंग एरिया वाढवला (Fitts's Law नुसार बोटाने किंवा माउसने क्लिक करणे सोपे जाते) */
+    padding: 6px 12px;
+    border-radius: 4px;
+    
+    /* 2. स्मूथ ट्रान्झिशन इफेक्ट */
+    transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+/* होव्हर इफेक्ट (जेव्हा माउस लिंकवर जाईल) */
+    nav a:hover {
+        color: #f39c12; /* तुमचा मूळ गोल्डन रंग */
+        background-color: rgba(255, 255, 255, 0.1); /* 3. हलकासा बॅकग्राउंड इफेक्ट (प्रीमियम लूक) */
+    }
+
+    /* 📱 मोबाईल आणि टॅब्लेटसाठी रेस्पॉन्सिव्ह मानके (Responsive Standards) */
+    @media (max-width: 768px) {
+        nav {
+            gap: 12px; /* मोबाईलवर स्क्रीन लहान असल्यामुळे अंतर कमी केले */
+            flex-wrap: wrap; /* 4. जागा कमी पडल्यास लिंक्स स्क्रीनबाहेर न जाता खाली व्यवस्थित ॲडजस्ट होतील */
+            justify-content: center;
+        }
+        
+        nav a {
+            font-size: 14px; /* मोबाईलवर वाचण्यासाठी योग्य आकार */
+            padding: 6px 10px;
+        }
+    }
+
+
+            /* भाषा निवडणारा ड्रॉपडाउन */
+            .lang-switch {
+                background: #f39c12;
+                color: white;
+                border: none;
+                padding: 6px 12px;
+                font-weight: bold;
+                border-radius: 4px;
+                cursor: pointer;
+                outline: none;
+            }
+    /* मुख्य प्रीमियम हिरो कंटेनर */
+
+/* मुख्य प्रीमियम हिरो कंटेनर - सुरक्षित रचना */
+.hero-container {
+    position: relative;
+    width: 100%;
+    
+    /* हाय-क्वालिटी बॅकग्राउंड इमेज आणि डार्क ओव्हरले */
+    background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.6)), 
+                url('https://unsplash.com') no-repeat center center/cover;
+    background-position: center top; /* इमेज वरून व्यवस्थित सेट होण्यासाठी */
+    
+    /* 1. बदल: वर-खाली सुरक्षित अंतर (Padding) */
+    padding: 10px 5% 10px 5%; /* वर ६०px आणि खाली ८०px जागा ठेवली जेणेकरून फॉर्म सुरक्षित बसेल */
+    
+    /* 2. बदल: आतील कंटेनर उंची वाढल्यास लेआउट कोलमडू नये म्हणून ब्लॉक डिस्प्ले वापरला */
+    display: block; 
+    
+    /* 3. बदल: उंची कधीही निश्चित ठेवू नका, 'min-height' मुळे लेआउट कोलमडणार नाही */
+    height: auto;
+    min-height: fit-content; 
+    
+    /* 4. बदल: 'visible' ऐवजी 'hidden' करा जेणेकरून आतील रचना खालच्या सेशन्सला दाबायला जाणार नाही */
+    overflow: hidden; 
+    
+    /* 5. बदल: खालील सेक्शन आणि यामध्ये सुरक्षित अंतर राखण्यासाठी */
+    margin-bottom: 40px; 
+}
+
+/* मुख्य २-कॉलम ग्रीड (कॉम्प्युटरवर शेजारी, मोबाईलवर एकाखाली एक) */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr; 
+    gap: 40px;
+    width: 100%;
+    max-width: 100%; 
+    margin: 0 auto;
+    align-items: center;
+}
+
+/* उजवी बाजू: बुकिंग कार्ड स्टाईल तपासा */
+.booking-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-top: 5px solid #f39c12;
+    width: 100%; 
+    
+    /* 🚨 अत्यंत महत्त्वाचे: इथे 'position: absolute' किंवा 'transform: translateY()' असल्यास काढून टाका. 
+       त्यामुळेच लेआउट कोलमडतो (Collapse होतो). */
+    position: relative; 
+}
+
+/* 📱 मोबाईल आणि टॅब्लेट स्क्रीनसाठी अचूक मानके (Media Queries) */
+@media (max-width: 992px) {
+    .hero-container {
+        padding: 40px 20px 60px 20px; /* मोबाईलवर पॅडिंग ऍडजस्ट केली */
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr; /* मोबाईलवर एकाखाली एक रचना */
+        gap: 30px;
+    }
+}
+
+
+/* मुख्य २-कॉलम ग्रीड (कॉम्प्युटरवर शेजारी, मोबाईलवर एकाखाली एक) */
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr; /* जागा विभागणी */
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px; /* मोठ्या स्क्रीनवर मर्यादित ठेवण्यासाठी */
+    align-items: center;
+}
+
+/* डावी बाजू: मजकूर डिझाईन */
+.hero-text {
+    color: #ffffff;
+}
+
+.hero-text h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem); /* 🌟 क्लॅम्प मुळे स्क्रीननुसार फॉन्ट लहान-मोठा होईल */
+    font-weight: 800;
+    line-height: 1.2;
+    color: #f39c12; /* गोल्डन ब्रँड कलर */
+    margin-bottom: 20px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.hero-text p {
+    font-size: clamp(1rem, 1.5vw, 1.25rem); /* रेस्पॉन्सिव्ह उप-मजकूर */
+    opacity: 0.95;
+    margin-bottom: 20px;
+    max-width: 100%;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+/* उजवी बाजू: हवेत तरंगणारा आधुनिक बुकिंग फॉर्म */
+.booking-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border-top: 5px solid #f39c12;
+    width: 100%; /* १००% विड्थ */
+}
+
+.booking-card h3 {
+    font-size: 22px;
+    color: #0f172a;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* फॉर्ममधील इनपुट बॉक्सची ग्रीड रचना */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* कॉम्प्युटरवर एका ओळीत २ बॉक्स */
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* नाव आणि गाडी प्रकार या इनपुट बॉक्सला पूर्ण रुंदी (Full Width) देण्यासाठी */
+.form-group-full {
+    grid-column: span 2;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 6px;
+}
+
+.form-group input, .form-group select {
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    background-color: #f8fafc;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: #2471b9;
+    box-shadow: 0 0 0 3px rgba(36, 113, 185, 0.15);
+}
+
+/* व्हॉट्सॲप सबमिट बटण */
+.whatsapp-btn {
+    background-color: #25D366;
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    transition: all 0.2s ease;
+}
+
+.whatsapp-btn:hover {
+    background-color: #20bc5a;
+    transform: translateY(-1px);
+}
+
+/* 📱 मोबाईल आणि टॅब्लेट स्क्रीनसाठी अचूक मानके (Media Queries) */
+@media (max-width: 992px) {
+    .hero-container {
+        padding: 40px 20px; /* मोबाईलवर पॅडिंग कमी केली */
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr; /* २ कॉलम ऐवजी १ कॉलम केला (एकाखाली एक) */
+        gap: 30px;
+    }
+
+    .hero-text {
+        text-align: center; /* मोबाईलवर टेक्स्ट मध्यभागी केला */
+    }
+
+    .hero-text p {
+        margin: 0 auto 20px auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .booking-card {
+        padding: 20px 15px; /* अगदी लहान मोबाईलसाठी अंतर्गत जागा कमी केली */
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr; /* लहान मोबाईलवर सर्व इनपुट बॉक्स एकाखाली एक येतील */
+    }
+
+    .form-group-full {
+        grid-column: span 1;
+    }
+}
+
+
+
+
+       /* मुख्य लेआउट कंटेनर - सुरक्षित मानके */
+.main-container {
+    max-width: 1200px;
+    
+    /* 1. बदल: ऋणात्मक मार्जिन (-40px) काढून टाकले. यामुळे आधीच्या हिरो सेक्शन आणि या कंटेनरमध्ये 
+       ४०px चे अगदी स्वच्छ, सुरक्षित आणि व्यावसायिक अंतर (Positive Spacing) तयार होईल. */
+    margin: 20px auto; 
+    
+    /* 2. अंतर्गत बाजूंचे सुरक्षित अंतर */
+    padding: 0 10px;
+    
+    /* ३-कॉलम किंवा २-कॉलम ग्रीड मांडणी */
+    display: grid;
+    grid-template-columns: 1.2fr 1.8fr;
+    gap: 10px;
+    
+    /* 3. बदल: लेआउटचा नैसर्गिक प्रवाह ब्राउझरला समजण्यासाठी 'clear' प्रॉपर्टी सुरक्षितता म्हणून जोडली */
+    clear: both;
+}
+
+/* 📱 मोबाईल आणि टॅब्लेट स्क्रीनसाठी मानके (Responsive Standard) */
+@media (max-width: 900px) {
+    .main-container {
+        /* 4. बदल: मोबाईलवर २ कॉलमऐवजी १ कॉलम केला, जेणेकरून डावे आणि उजवे विभाग एकाखाली एक सुबक दिसतील */
+        grid-template-columns: 1fr;
+        
+        /* 5. बदल: मोबाईलच्या स्क्रीननुसार वरचे अंतर थोडे कमी (२०px) केले जेणेकरून जागा वाया जाणार नाही */
+        margin: 20px auto; 
+    }
+}
+
+
+        section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .section-title {
+            font-size: 22px;
+            color: #1a252f;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #f39c12;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        /* बुकिंग फॉर्म */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+
+        .fare-estimate {
+            background: #e8f8f5;
+            padding: 12px;
+            border-left: 4px solid #2cc36b;
+            margin-top: 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            display: none;
+        }
+/* संचालकांचा मुख्य विभाग */
+.owner-section {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+/* मुख्य टायटल मानक (जर आधीच नसेल तर) */
+.section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a; /* डार्क नेव्ही */
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: #f39c12; /* ब्रँड गोल्डन रंग */
+    border-radius: 2px;
+}
+
+/* आधुनिक ओनर कार्ड डिझाईन (Floating & Premium Look) */
+.owner-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* मऊ आधुनिक शॅडो */
+    border: 1px solid #e2e8f0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.owner-card:hover {
+    transform: translateY(-2px); /* माउस नेल्यावर हलकासा वर उठणारा इफेक्ट */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* फोटो कंटेनर आणि क्रॉपिंग मानके */
+.owner-img-container {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* वर्तुळाकार आधुनिक लूक */
+    overflow: hidden;
+    border: 3px solid #f39c12; /* गोल्डन बॉर्डर */
+    box-shadow: 0 4px 10px rgba(243, 156, 18, 0.2);
+}
+
+.owner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* फोटो ताणला न जाता व्यवस्थित सेट होण्यासाठी */
+    object-position: top center;
+}
+
+/* मजकूर डिझाईन */
+.owner-details {
+    flex: 1;
+}
+
+.owner-details h3 {
+    font-size: 18px;
+    color: #0f172a;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.owner-details .role {
+    font-size: 13px;
+    color: #2471b9; /* ब्रँड निळा रंग */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+/* कोट्स (Quote) साठी आधुनिक रचना */
+.bio-quote {
+    position: relative;
+    background-color: #f8fafc; /* सॉफ्ट राखाडी बॅकग्राउंड बॉक्स */
+    padding: 12px 16px;
+    border-radius: 8px;
+    border-left: 3px solid #cbd5e1;
+}
+
+.owner-details .bio {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+/* 📱 मोबाईल आणि टॅब्लेट स्क्रीनसाठी अचूक रिस्पॉन्सिव्ह मानके */
+@media (max-width: 576px) {
+    .owner-card {
+        flex-direction: column; /* मोबाईलवर फोटो वर आणि मजकूर खाली येईल */
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .owner-img-container {
+        width: 110px;
+        height: 110px;
+        margin-bottom: 5px;
+    }
+    
+    .section-title::after {
+        left: 50%;
+        transform: translateX(-50%); /* मोबाईलवर टायटलची लाईन मध्यभागी होईल */
+    }
+    
+    .bio-quote {
+        border-left: none;
+        border-top: 3px solid #cbd5e1; /* मोबाईलवर उभी लाईन आडवी होईल */
+    }
+}
+
+
+        /* सर्व्हिसेस ग्रिड */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .service-box {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            transition: transform 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .service-box:hover {
+            transform: translateY(-5px);
+            border-color: #f39c12;
+        }
+
+        .service-box i {
+            font-size: 30px;
+            color: #f39c12;
+            margin-bottom: 12px;
+        }
+
+        .service-box h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #1a252f;
+        }
+
+        .service-box p {
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* ताफा (Fleet) ग्रिड */
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .fleet-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            overflow: hidden;
+            background: #fff;
+            transition: transform 0.3s;
+        }
+
+        .fleet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .fleet-card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+        }
+
+        .fleet-info {
+            padding: 15px;
+        }
+
+        .fleet-info h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #1a252f;
+        }
+
+        .fleet-info p {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .fleet-info .features {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-bottom: 8px;
+        }
+
+        .fleet-info .rate {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        /* फुटर */
+        footer {
+            background-color: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        /* रिस्पॉन्सिव्ह डिझाईन */
+        @media (max-width: 900px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                margin-top: 5px;
+            }
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+
+
+        /* गुगल मॅप मुख्य विभाग */
+.map-section {
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    clear: both;
+}
+
+/* टायटल डिझाईन मानके */
+.map-section .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a; /* डार्क नेव्ही */
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.map-section .section-title i {
+    color: #2471b9; /* ब्रँड निळा रंग */
+}
+
+.map-section .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #f39c12; /* ब्रँड गोल्डन रंग */
+    border-radius: 2px;
+}
+
+/* प्रिमियम मॅप कार्ड (Floating Look) */
+.map-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); /* अत्यंत मऊ आधुनिक शॅडो */
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* आयफ्रेम (Iframe) सुरक्षित आणि रिस्पॉन्सिव्ह रचना */
+.map-card iframe {
+    width: 100%;
+    height: 300px; /* कॉम्प्युटरवर योग्य उंची */
+    border: none;
+    border-radius: 12px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+}
+
+/* मॅपच्या खालील पत्ता आणि माहिती विभाग */
+.map-info {
+    padding: 4px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.map-info h4 {
+    font-size: 16px;
+    color: #0f172a;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.map-info p {
+    font-size: 14px;
+    color: #475569;
+    flex: 1;
+    min-width: 250px;
+}
+
+/* गुगल मॅप नेव्हिगेशन बटण */
+.direction-btn {
+    background-color: #2471b9; /* ब्रँड निळा */
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(36, 113, 185, 0.2);
+    transition: all 0.2s ease-in-out;
+}
+
+.direction-btn:hover {
+    background-color: #1d5fa0;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(36, 113, 185, 0.3);
+}
+
+/* 📱 मोबाईल आणि टॅब्लेट स्क्रीनसाठी मानके (Responsive Standards) */
+@media (max-width: 768px) {
+    .map-card iframe {
+        height: 220px; /* मोबाईलवर स्क्रीन लहान असल्यामुळे नकाशाची उंची कमी केली */
+    }
+    
+    .map-info {
+        flex-direction: column; /* मोबाईलवर पत्ता आणि बटण एकाखाली एक येईल */
+        text-align: center;
+        align-items: center;
+    }
+    
+    .direction-btn {
+        width: 100%;
+        justify-content: center; /* मोबाईलवर बटण फुल विड्थ होईल */
+    }
+    
+    .map-section .section-title::after {
+        left: 50%;
+        transform: translateX(-50%); /* मोबाईलवर टायटलची लाईन मध्यभागी होईल */
+    }
+    
+    .map-section .section-title {
+        justify-content: center;
+    }
+}
+
+
+/* ऑनलाइन पेमेंट मुख्य विभाग */
+.payment-section {
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    clear: both;
+}
+
+/* टायटल डिझाईन मानके */
+.payment-section .section-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a; /* डार्क नेव्ही */
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.payment-section .section-title i {
+    color: #2471b9; /* ब्रँड निळा रंग */
+}
+
+.payment-section .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: #f39c12; /* ब्रँड गोल्डन रंग */
+    border-radius: 2px;
+}
+
+/* प्रिमियम पेमेंट कार्ड (२ कॉलम लेआउट) */
+.payment-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06); /* अत्यंत मऊ आधुनिक शॅडो */
+    border: 1px solid #e2e8f0;
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr; /* कॉम्प्युटरवर डावी बाजू मोठी आणि उजवी बाजू लहान */
+    gap: 30px;
+    align-items: center;
+}
+
+/* डावी बाजू: मजकूर आणि बँक तपशील */
+.payment-details h4 {
+    font-size: 20px;
+    color: #0f172a;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.payment-instruction {
+    font-size: 14px;
+    color: #475569;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* यूपीआय ॲप्सचे छोटे बॅजेस */
+.upi-apps {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.upi-badge {
+    background-color: #f1f5f9;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+/* बँक माहिती बॉक्स */
+.bank-info {
+    background-color: #f8fafc; /* सॉफ्ट राखाडी बॉक्स */
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid #2471b9; /* निळी ठळक बॉर्डर */
+}
+
+.bank-info h5 {
+    font-size: 15px;
+    color: #0f172a;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.bank-info p {
+    font-size: 14px;
+    color: #334155;
+    margin-bottom: 6px;
+}
+
+.bank-info p:last-child {
+    margin-bottom: 0;
+}
+
+/* उजवी बाजू: क्यूआर कोड एरिया */
+.qr-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.qr-box {
+    background: #ffffff;
+    padding: 16px;
+    border-radius: 12px;
+    border: 2px dashed #cbd5e1; /* डॅश बॉर्डर लूक */
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s ease;
+}
+
+.qr-box:hover {
+    transform: scale(1.02); /* माउस नेल्यावर हलकासा झूम इफेक्ट */
+}
+
+.qr-image {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+}
+
+.scan-text {
+    font-size: 13px;
+    font-weight: 700;
+    color: #2471b9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.upi-id {
+    font-size: 14px;
+    color: #0f172a;
+    margin-top: 12px;
+    background: #f1f5f9;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+/* 📱 मोबाईल आणि टॅब्लेट स्क्रीनसाठी मानके (Responsive Standards) */
+@media (max-width: 768px) {
+    .payment-card {
+        grid-template-columns: 1fr; /* मोबाईलवर बँक डिटेल्स आणि QR कोड एकाखाली एक येतील */
+        padding: 20px;
+        gap: 40px;
+    }
+    
+    .payment-details, .qr-area {
+        text-align: center;
+    }
+    
+    .upi-apps {
+        justify-content: center; /* मोबाईलवर यूपीआय बॅजेस मध्यभागी येतील */
+    }
+    
+    .bank-info {
+        text-align: left; /* बँक खात्याचा मजकूर मोबाईलवर डावीकडेच वाचायला सोपा वाटेल */
+    }
+    
+    .payment-section .section-title::after {
+        left: 50%;
+        transform: translateX(-50%); /* मोबाईलवर टायटलची लाईन मध्यभागी होईल */
+    }
+    
+    .payment-section .section-title {
+        justify-content: center;
+    }
+}
+
+   
